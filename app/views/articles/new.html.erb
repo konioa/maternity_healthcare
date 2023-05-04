@@ -1,0 +1,89 @@
+<div class='account-page' id='account-page'>
+  <div class='account-page__inner clearfix'>
+    <div class='account-page__inner--left account-page__header'>
+      <h2>日記作成</h2>
+      <h5>記録しましょう</h5>
+    </div>
+    <div class='account-page__inner--right user-form'>
+      <%= form_with(model: @article, local: true) do |f| %>
+        <%#= render "devise/shared/error_messages", model: f.object %>
+        <div class='field'>
+          <div class='field-label'>
+          <div class="time">
+            <%= f.label :日付 %>
+          </div>
+          <div class='field-input'>
+            <%= f.datetime_select(:start_time, {with_css_classes: true}) %>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :タイトル %>
+          </div>
+          <div class='field-input-nikki'>
+            <%= f.text_field :title %>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :体重 %>
+          </div>
+          <div class='field-input-nikki'>
+            <%= f.text_field :weight %>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :目標体重 %>
+          </div>
+          <div class='field-input-nikki'>
+            <%= f.text_field :target_weight %>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :食事 %>
+          </div>
+          <div class='text-input'>
+            <%= f.text_area :meal, size: "65x5" %>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :運動 %>
+          </div>
+          <div class='text-input'>
+            <%= f.text_area :exercise, size: "65x5" %>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :気分 %>
+          </div>
+          <div class='field-input-nikki'>
+            <%= f.text_field :condition %>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :疾患 %>
+          </div>
+          <div class='field-input-nikki'>
+            <%= f.text_field :disease %>
+          </div>
+        </div>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :メモ %>
+          </div>
+          <div class='text-input'>
+            <%= f.text_area :diary, size: "65x5" %>
+          </div>
+        </div>
+        <div class='actions'>
+          <%= f.submit "Create article", class: 'btn'%>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

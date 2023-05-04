@@ -1,0 +1,26 @@
+<div class="side-bar-header">
+  <div class="header-name">
+    <%#= link_to "#{current_user.nickname} さん" %>
+    <%#= link_to "#{current_user.nickname}さん", edit_user_path(current_user) %>
+  </div>
+  <div class="create-room">
+    <%#= link_to '記録する', new_article_path %>
+
+  </div>
+</div>
+
+<div class="dates">
+  <div class="date">
+    <div class="date-name">
+      <%#= Date.current.strftime("%Y/%m/%d(%a)") %><br>
+    </div>
+    <div class="date-name-syusan">
+      <a>出産予定日まで</a>
+      <a class="date-name-yoteibi">
+      <%#= (current_user.due_date - Date.today).to_i %></a><a>日</a>
+    </div>
+    <div class="date-image">
+      <%= image_tag '/flower3.png', class:"flower-image", :size => '220x330' %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,96 @@
+<div class='account-page' id='account-page'>
+  <div class='account-page__inner clearfix'>
+    <div class='account-page__inner--left account-page__header'>
+      <h2>日記作成</h2>
+      <h5>記録しましょう</h5>
+    </div>
+    <div class='account-page__inner--right user-form'>
+      <div class='field'>
+        <div class='field-label'>日付
+        </div>
+        <div class='field-input-kakoi'>
+          <%= @article.start_time %>
+        </div>
+      </div>
+      <div class='field'>
+        <div class='field-label'>タイトル
+        </div>
+        <div class='field-input-kakoi'>
+          <%= @article.title %>
+        </div>
+      </div>
+      <% unless @article.weight.blank? %>
+      <div class='field'>
+        <div class='field-label'>体重
+        </div>
+        <div class='field-input-kakoi'>
+          <%= @article.weight %>
+        </div>
+      </div>
+      <% end %>
+      <% unless @article.target_weight.blank? %>
+      <div class='field'>
+        <div class='field-label'>目標体重
+        </div>
+        <div class='field-input-kakoi'>
+          <%= @article.target_weight %>
+        </div>
+      </div>
+      <% end %>
+      <% unless @article.meal.blank? %>
+      <div class='field'>
+        <div class='field-label'>食事
+        </div>
+        <div class='field-input-kakoi'>
+          <%= @article.meal %>
+        </div>
+      </div>
+      <% end %>
+      <% unless @article.exercise.blank? %>
+      <div class='field'>
+        <div class='field-label'>運動
+        </div>
+        <div class='field-input-kakoi'>
+          <%= @article.exercise %>
+        </div>
+      </div>
+      <% end %>
+      <% unless @article.condition.blank? %>
+      <div class='field'>
+        <div class='field-label'>気分
+        </div>
+        <div class='field-input-kakoi'>
+          <%= @article.condition %>
+        </div>
+      </div>
+      <% end %>
+      <% unless @article.disease.blank? %>
+      <div class='field'>
+        <div class='field-label'>疾患
+        </div>
+        <div class='field-input-kakoi'>
+          <%= @article.disease %>
+        </div>
+      </div>
+      <% end %>
+      <% unless @article.diary.blank? %>
+      <div class='field'>
+        <div class='field-label'>メモ
+        </div>
+        <div class='field-input-kakoi'>
+          <%= @article.diary %>
+        </div>
+      </div>
+      <% end %>
+      <div class='graph'>
+      <%= line_chart Article.group(:start_time).sum(:weight) %>
+      </div>
+      <div class='btn_2'>
+      <%= link_to "Back", root_path %>
+      </div>
+      <div class='btn_2'>
+      <%= link_to "Edit", edit_article_path(@article) %>
+      </div>
+    </div>
+  </div>
+</div>

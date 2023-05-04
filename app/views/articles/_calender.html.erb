@@ -1,0 +1,19 @@
+<header class="header">
+  <div class="header__bar">
+    <h1 class="grid-6"><a>Maternity HealthCare</a></h1>
+    <div class="user_nav">
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    </div>
+  </div>
+</header>
+
+<%= month_calendar events: @articles do |date, articles| %>
+  <%= date.day %> 
+    <% articles.each do |article| %>
+      <div>
+        <%= link_to article.title, article_path(article.id) %>
+      </div>
+  <% end %>
+<% end %>
+
+<%# line_chart @result %>
