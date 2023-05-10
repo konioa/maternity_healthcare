@@ -82,12 +82,15 @@
         </div>
       </div>
       <% end %>
+      <% unless @article.weight.blank? %>
       <div class='graph'>
-      <%= line_chart Article.group(:start_time).sum(:weight) %>
+      <%#= line_chart Article.group(:start_time).sum(:weight) %>
+      <%= line_chart @chart %>
       </div>
       <div class='btn_2'>
       <%= link_to "Back", root_path %>
       </div>
+      <% end %>
       <div class='btn_2'>
       <%= link_to "Edit", edit_article_path(@article) %>
       </div>

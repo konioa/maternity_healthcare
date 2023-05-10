@@ -31,6 +31,14 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+
+    weight = Article.group(:start_time).sum(:weight)
+    target_weight = Article.group(:start_time).sum(:target_weight)
+    
+    @chart = [
+      { name: "体重", data: weight },
+      { name: "目標体重", data: target_weight }
+    ]
   end
 
   def edit
